@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <h1>Create Client</h1>
         </div>
-        <form method="POST" action="{{ route('store') }}">
+        <form method="POST" action="{{ route('client.store') }}">
             @csrf
             
             <div class="form-group">
@@ -29,28 +29,28 @@
             </div>
 
             <div class="form-group">
-                <label for="tipo_endereco">Type of Address:</label>
-                <input type="text" class="form-control" id="type_of_address" name="type_of_address" required>
-            </div>
-            <div class="form-group">
                 <label for="tipo_endereco">Road:</label>
-                <input type="text" class="form-control" id="road" name="road" required>
+                <input type="text" class="form-control" id="road" name="road">
             </div>
+
             <div class="form-group">
                 <label for="tipo_endereco">Number:</label>
-                <input type="text" class="form-control" id="number" name="number" required>
+                <input type="text" class="form-control" id="number" name="number">
             </div>
+
             <div class="form-group">
                 <label for="tipo_endereco">City:</label>
-                <input type="text" class="form-control" id="city" name="city" required>
+                <input type="text" class="form-control" id="city" name="city">
             </div>
+
             <div class="form-group">
                 <label for="tipo_endereco">State:</label>
-                <input type="text" class="form-control" id="state" name="state" required>
+                <input type="text" class="form-control" id="state" name="state">
             </div>
+
             <div class="form-group">
                 <label for="tipo_endereco">Country:</label>
-                <input type="text" class="form-control" id="country" name="country" required>
+                <input type="text" class="form-control" id="country" name="country">
             </div>
 
             <input class="btn btn-success" type="submit" value="Create">

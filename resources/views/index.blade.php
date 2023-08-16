@@ -16,7 +16,7 @@
       </div>
     </div> -->
     <div class="mt-3 mb-3">
-        <a href="{{ route('create') }}">
+        <a href="{{ route('client.create') }}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
  
@@ -45,7 +45,7 @@
                         <td>{{$client->date_of_birth}}</td>
                         <td>{{$client->cpf}}</td>
                         <td>
-                            <a href="" class="btn btn-info"> Edit</a>
+                            <a href="{{ route('client.edit', [$client->id]) }}" class="btn btn-info"> Edit</a>
 
                             <a href="" class="btn btn-danger">Delete</a>
 

@@ -52,7 +52,7 @@ class ClientController extends Controller
             'country' => $request->input('country'),
         ]);
 
-        return redirect()->route('index')->with('success', 'client created successfully');
+        return redirect()->route('client.index')->with('success', 'client created successfully');
     }
 
     /**
@@ -74,7 +74,9 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::find($id)->with('address')->first();
+        
+        return view('edit', ['client' => $client]);
     }
 
     /**
@@ -86,7 +88,24 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+
+        $client->update([
+            'name' => $request->input('name'),
+            'telephone' => $request->input('telephone'),
+            'date_of_birth' => $request->input('date_of_birth'),
+            'cpf' => $request->input('cpf')
+        ]);
+
+        $client->address->update([
+            'road' => $request->input('road'),
+            'number' => $request->input('number'),
+            'city' => $request->input('city'),
+            'state' => $request->input('state'),
+            'country' => $request->input('country'),
+        ]);
+
+        return redirect()->route('client.index')->with('success', 'client updated successfully');
     }
 
     /**

@@ -14,4 +14,4 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::resource('/', ClientController::class);
+Route::resource('/client', ClientController::class);
