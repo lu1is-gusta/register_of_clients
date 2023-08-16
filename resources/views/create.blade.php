@@ -56,5 +56,4 @@
             <input class="btn btn-success" type="submit" value="Create">
         </form>
     </div>
-
 @endsection

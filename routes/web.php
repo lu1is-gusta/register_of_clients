@@ -13,5 +13,7 @@ use App\Http\Controllers\ClientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect("/", "/client");
 
 Route::resource('/client', ClientController::class);
+Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');

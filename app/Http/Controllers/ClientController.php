@@ -63,7 +63,9 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::find($id);
+        
+        return view('show', ['client' => $client]);
     }
 
     /**
@@ -74,7 +76,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = Client::find($id)->with('address')->first();
+        $client = Client::find($id);
         
         return view('edit', ['client' => $client]);
     }
@@ -108,6 +110,13 @@ class ClientController extends Controller
         return redirect()->route('client.index')->with('success', 'client updated successfully');
     }
 
+    public function delete($id)
+    {
+        $client = Client::find($id);
+
+        return view('delete', ['client' => $client]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -116,6 +125,10 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        $client->address->delete();
+        $client->delete();
+
+        return redirect()->route('client.index')->with('success', 'client deleted successfully');
     }
 }
