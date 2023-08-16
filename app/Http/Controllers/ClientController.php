@@ -26,7 +26,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +37,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = Client::create([
+            'name' => $request->input('name'),
+            'telephone' => $request->input('telephone'),
+            'date_of_birth' => $request->input('date_of_birth'),
+            'cpf' => $request->input('cpf')
+        ]);
+
+        $client->address()->create([
+            'type_of_address' => $request->input('type_of_address'),
+            'road' => $request->input('road'),
+            'number' => $request->input('number'),
+            'city' => $request->input('city'),
+            'state' => $request->input('state'),
+            'country' => $request->input('country'),
+        ]);
+
+        return redirect()->route('index')->with('success', 'client created successfully');
     }
 
     /**

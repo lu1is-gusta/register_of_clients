@@ -16,7 +16,7 @@
       </div>
     </div> -->
     <div class="mt-3 mb-3">
-        <a href="/cadastrar">
+        <a href="{{ route('create') }}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
  
@@ -39,23 +39,17 @@
             <tbody>
                 @foreach($clients as $client)
                     <tr>
-                        <!-- <th scope="row">{{$client->id}}</th> -->
+                        <th scope="row">{{$client->id}}</th>
                         <td>{{$client->name}}</td>
                         <<td>{{$client->telephone}}</td>
                         <td>{{$client->date_of_birth}}</td>
                         <td>{{$client->cpf}}</td>
                         <td>
-                            <a href="">
-                                <button class="btn btn-info">Edit</button>
-                            </a>
+                            <a href="" class="btn btn-info"> Edit</a>
 
-                            <a href="">
-                                <button class="btn btn-danger">Delete</button>
-                            </a>
+                            <a href="" class="btn btn-danger">Delete</a>
 
-                            <a href="">
-                                <button class="btn btn-success"></button>
-                            </a>
+                            <a href="" class="btn btn-success">Details</a>
                         </td>
                     </tr>
                 @endforeach              
