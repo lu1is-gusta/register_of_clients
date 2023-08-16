@@ -45,7 +45,6 @@ class ClientController extends Controller
         ]);
 
         $client->address()->create([
-            'type_of_address' => $request->input('type_of_address'),
             'road' => $request->input('road'),
             'number' => $request->input('number'),
             'city' => $request->input('city'),

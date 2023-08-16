@@ -13,6 +13,6 @@ class Client extends Model
     protected $fillable = ['name', 'telephone', 'date_of_birth', 'cpf'];
 
     function address(){
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
 }
